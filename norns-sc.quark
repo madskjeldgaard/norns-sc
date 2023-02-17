@@ -1,0 +1,7 @@
+(
+name:		"norns-sc",
+summary:	"The SuperCollider architecture for monome norns",
+version: 	"0.0.1",
+schelp: 	"Crone",
+url:		"https://github.com/madskjeldgaard/norns-sc",
+)
