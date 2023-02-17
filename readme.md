@@ -17,4 +17,14 @@ Crone.setEngine("Engine_TestSine"); // Set new engine
 
 // This emulates how lua sets a parameter in the engine:
 Crone.engine.setCommand('hz', 200.5);
+
+// Automatically write lua code for all commands in the engine
+(
+var lua = Crone.engine.commandsAsLua();
+
+// Write to file
+File("my_norns.lua","w")
+.write(lua)
+.close();
+)
 ```

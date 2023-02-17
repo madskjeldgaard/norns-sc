@@ -91,6 +91,21 @@ CroneEngine {
 		^idx
 	}
 
+    commandsAsLua{
+        var lua = "";
+
+        commandNames.keys.do{|name|
+            var luaCode =
+            "-- % param\n" ++
+            "params:add_control(\"%\", \"%\", controlspec.UNIPOLAR)\n" ++
+            "params:set_action(\"%\", function(value) engine.%(value) end)";
+
+            lua = lua ++ luaCode.format(*name.dup(5)) ++ "\n";
+        };
+
+        ^lua.postln;
+    }
+
 }
 
 
