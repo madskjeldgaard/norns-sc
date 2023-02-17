@@ -54,6 +54,20 @@ CroneEngine {
 		doneCallback.value(this);
 	}
 
+    // HACK: Used only for testing on non-Norns hardware. This just bypasses the osc def inside the command
+    setCommand{ arg name, value;
+        // Check if name exists
+        if(commandNames[name].isNil, {
+            postln("Command does not exist");
+        }, {
+            var useCommand = commands.select{|com| com.name == name.asSymbol}.first;
+            var useFunc = useCommand.oscdef.func;
+
+            // NOTE: Actually not sure what that first value is
+            useFunc.value([0.0, value]);
+        });
+
+    }
 
 	addCommand { arg name, format, func;
 		var idx, cmd;

@@ -12,4 +12,7 @@ Quarks.install("https://github.com/madskjeldgaard/norns-sc");
 ```supercollider
 Crone.run(); // Start Crone manually
 Crone.setEngine("Engine_TestSine"); // Set new engine
+
+// This emulates how lua sets a parameter in the engine:
+Crone.engine.setCommand('hz', 200.5);
 ```
